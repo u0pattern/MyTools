@@ -44,10 +44,26 @@ while (<MYFILE>) {
 					}
 					else
 					{
-						print "$getted\n";
-						open(EM4IL,">>MoreEmails.txt");
-						print EM4IL $getted;
-						close(EM4IL);
+						if($email =~ /mail.ru/){
+							print "$getted -> MailRu\n";
+							open(EM4IL,">>MailRu.txt");
+							print EM4IL $getted;
+							close(EM4IL);
+						}
+						else
+						{
+							print "$getted\n";
+							open(EM4IL,">>MoreEmails.txt");
+							print EM4IL $getted;
+							close(EM4IL);
+						}
+					}
+				}
+			}
+		}
+    }
+}
+
 					}
 				}
 			}
