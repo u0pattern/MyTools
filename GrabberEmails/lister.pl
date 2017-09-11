@@ -25,9 +25,5 @@ while (<MYFILE>) {
 			print EM4IL $getted;
 			close(EM4IL);
 		}
-		else
-		{
-			print "Sorry, we're not found any email";
-		}
     }
 }
