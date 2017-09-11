@@ -20,10 +20,37 @@ while (<MYFILE>) {
     foreach my $email (@emails) {  
 		if(Email::Valid->address($email)) {
 			$getted = "$email\n";
-			print "$getted\n";
-			open(EM4IL,">>Emails.txt");
-			print EM4IL $getted;
-			close(EM4IL);
+			if($email =~ /gmail.com/){
+				print "$getted -> Gmail\n";
+				open(EM4IL,">>Gmail.txt");
+				print EM4IL $getted;
+				close(EM4IL);
+			}
+			else
+			{
+				if($email =~ /hotmail.com/){
+					print "$getted -> HotMail\n";
+					open(EM4IL,">>Hotmail.txt");
+					print EM4IL $getted;
+					close(EM4IL);
+				}
+				else
+				{
+					if($email =~ /yahoo.com/){
+						print "$getted -> Yahoo\n";
+						open(EM4IL,">>Yahoo.txt");
+						print EM4IL $getted;
+						close(EM4IL);
+					}
+					else
+					{
+						print "$getted\n";
+						open(EM4IL,">>MoreEmails.txt");
+						print EM4IL $getted;
+						close(EM4IL);
+					}
+				}
+			}
 		}
     }
 }
